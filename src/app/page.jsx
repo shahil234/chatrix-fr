@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 
 export default async function Home() {
   const cookieStore = await cookies();
-  const res = await fetch("http://localhost:4001/auth/user", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/user`, {
     headers: {
       Cookie: cookieStore.toString(),
     },
